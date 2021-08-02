@@ -1,0 +1,109 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 10px 20px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.owner {
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+}
+
+.ownerImg {
+    width: 300px;
+    height: 400px;
+}
+
+#summary {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 600px;
+    font-family: 'Karla', sans-serif;
+}
+
+#mail {
+    font-size: 14px;
+    margin: 15px 5px;
+}
+
+.video {
+    width: 1000px;
+    height: 500px;
+}
+
+@media screen and (max-width: 1900px) {
+    #summary {
+        margin: 0 500px;
+    }
+}
+
+@media screen and (max-width: 1750px) {
+    #summary {
+        margin: 0 450px;
+    }
+}
+
+@media screen and (max-width: 1540px) {
+    #summary {
+        margin: 0 300px;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    #summary {
+        margin: 0 250px;
+    }
+    .video {
+        width: 800px;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #summary {
+        margin: 0 190px;
+    }
+}
+
+@media screen and (max-width: 1001px) {
+    #summary {
+        margin: 0 130px;
+    }
+    .video {
+        width: 700px;
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    #summary {
+        margin: 0 80px;
+    }
+    .video {
+        width: 640px;
+        height: 320px;
+    }
+}
+
+@media screen and (max-width: 675px) {
+    #summary {
+        margin: 0 60px;
+    }
+    .video {
+        width: 540px;
+        height: 270px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    #summary {
+        margin: 0 30px;
+    }
+    .video {
+        width: 420px;
+        height: 210px;
+    }
+}
