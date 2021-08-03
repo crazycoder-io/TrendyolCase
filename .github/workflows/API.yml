@@ -13,12 +13,18 @@ jobs:
     strategy:
       matrix:
         node-version: [10.x, 12.x, 14.x]
+        mongodb-version: [4.4]
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Start MongoDB v${{ matrix.mongodb-version }}
+        uses: supercharge/mongodb-github-action@1.2.0
+        with:
+          mongodb-version: ${{ matrix.mongodb-version }}
+      - run: echo "MongoDB service run"
       - name: Install dependencies
         run: cd api && npm install
       - name: Run tests
