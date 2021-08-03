@@ -1,0 +1,21 @@
+name: API Deploy to Heroku
+
+on:
+  push:
+    branches:
+      - api
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build, Push and Release a Docker container to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: c6888078-bf9e-4ef1-9ffc-c69e5e4d7053
+          heroku_app_name: "perf-analytics-api"
+          heroku_email: "kilincaslanmesut@gmail.com"
+          appdir: "api"
+          usedocker: true
