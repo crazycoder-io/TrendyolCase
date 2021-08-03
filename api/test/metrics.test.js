@@ -4,7 +4,7 @@ const createServer = require("../server");
 
 beforeEach((done) => {
 	mongoose.connect(
-		process.env.TEST_DB_STRING,
+		process.env.TEST_DB_STRING || "mongodb://127.0.0.1:27017/perfanalytics_tests",
 		{useNewUrlParser: true, useUnifiedTopology: true},
 		() => done()
 	);
