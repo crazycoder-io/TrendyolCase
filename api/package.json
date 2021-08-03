@@ -4,7 +4,7 @@
   "description": "Restful API which saves data, posted from PerfAnalytics.JS and returns time specific",
   "main": "index.js",
   "scripts": {
-    "test": "jest --forceExit",
+    "test": "jest",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
