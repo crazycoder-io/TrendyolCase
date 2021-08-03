@@ -13,17 +13,15 @@ jobs:
       matrix:
         node-version: [10.x, 12.x, 14.x]
     steps:
-      - name: Go API folder
-        run: cd api
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
-        run: npm install
+        run: cd api && npm install
       - name: Run tests
-        run: npm test
+        run: cd api && npm test
   deploy:
     needs: test
     runs-on: ubuntu-latest
