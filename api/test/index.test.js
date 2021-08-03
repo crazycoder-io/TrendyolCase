@@ -6,6 +6,10 @@ const app = createServer();
 
 describe("GET /", function() {
 
+    beforeAll(() => {
+        jest.setTimeout(30000);
+    });
+
     beforeEach((done) => {
         mongoose.connect(
             process.env.TEST_DB_STRING || "mongodb://127.0.0.1:27017/perfanalytics_tests",

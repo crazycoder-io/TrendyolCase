@@ -6,6 +6,10 @@ const app = createServer();
 
 describe("POST /metrics", function() {
 
+    beforeAll(() => {
+        jest.setTimeout(30000);
+    });
+
     beforeEach((done) => {
         mongoose.connect(
             process.env.TEST_DB_STRING || "mongodb://127.0.0.1:27017/perfanalytics_tests",
@@ -19,7 +23,7 @@ describe("POST /metrics", function() {
             mongoose.connection.close(() => done())
         });
     });
-    
+
     it("/collect-metrics response should be OK", (done) => {
         request(app)
         .post("/metrics/collect-metrics")
