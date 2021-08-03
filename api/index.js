@@ -37,7 +37,7 @@ app.get(
 	"/",
 	async (req, res) => {
 		return res.status(200).send({
-			message: "Hello Test app",
+			message: "Welcome to PerfAnalytics App",
 		});
 	}
 );
