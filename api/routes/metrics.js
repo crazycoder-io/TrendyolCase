@@ -3,23 +3,22 @@
 const express = require("express");
 const router = express.Router();
 
-const TenantModel = require("../models/Tenant");
 const MetricModel = require("../models/Metrics");
 
 router
 	.post("/report-metrics", async (req, res) => {
-        const { url, metric_key } = req.body;
+        const { url, date } = req.body;
 
         try {
-            const tenant = await TenantModel.findOne({ tenant_url: url });
+            const tenant = await MetricModel.findOne({ tenant_url: url });
 
-            res.json(tenant)
+            res.json({ data: [] });
         } catch (error) {
-            res.json({ error: { message: error.message } });
+            res.json({ error: { error_message: error.message } });
         }
 	})
 	.post("/collect-metrics", (req, res) => {
-		res.send("collect");
+        res.json({ message: "OK!" });
 	});
 
 
