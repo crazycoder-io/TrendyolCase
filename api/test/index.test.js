@@ -2,24 +2,23 @@ const request = require("supertest");
 const mongoose = require("mongoose");
 const createServer = require("../server");
 
-beforeEach((done) => {
-    jest.setTimeout(10000);
-	mongoose.connect(
-		process.env.TEST_DB_STRING || "mongodb://127.0.0.1:27017/perfanalytics_tests",
-		{useNewUrlParser: true, useUnifiedTopology: true},
-		() => done()
-	);
-})
-
-afterEach((done) => {
-	mongoose.connection.db.dropDatabase(() => {
-		mongoose.connection.close(() => done())
-	});
-})
-
 const app = createServer();
 
 describe("GET /", function() {
+
+    beforeEach((done) => {
+        mongoose.connect(
+            process.env.TEST_DB_STRING || "mongodb://127.0.0.1:27017/perfanalytics_tests",
+            {useNewUrlParser: true, useUnifiedTopology: true},
+            () => done()
+        );
+    });
+
+    afterEach((done) => {
+        mongoose.connection.db.dropDatabase(() => {
+            mongoose.connection.close(() => done())
+        });
+    });
     
     it("it should has status code 200", (done) => {
         request(app)
