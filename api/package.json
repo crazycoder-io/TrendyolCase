@@ -1,0 +1,18 @@
+{
+  "name": "PerfAnalytics.API",
+  "version": "1.0.0",
+  "description": "Restful API which saves data, posted from PerfAnalytics.JS and returns time specific",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "eslint": "^7.32.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0"
+  }
+}
