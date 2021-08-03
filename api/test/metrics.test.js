@@ -18,14 +18,23 @@ afterEach((done) => {
 
 const app = createServer();
 
-describe("GET /", function() {
-    
-    it("it should has status code 200", (done) => {
+describe("POST /metrics", function() {    
+    it("/collect-metrics response should be OK", (done) => {
         request(app)
-        .get('/')
+        .post("/metrics/collect-metrics")
         .then(response => {
             expect(response.statusCode).toBe(200);
-            expect(response.body.message).toBe("Welcome to PerfAnalytics App");
+            expect(response.body.message).toBe("OK!");
+        });
+        done();
+    });
+
+    it("/report-metrics response should be expected data", (done) => {
+        request(app)
+        .post("/metrics/report-metrics")
+        .then(response => {
+            expect(response.statusCode).toBe(200);
+            expect(response.body.data).toBe([]);
         });
         done();
     });
