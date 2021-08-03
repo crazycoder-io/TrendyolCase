@@ -3,18 +3,14 @@ FROM node:12
 # create root application folder
 WORKDIR /app
 
-# copy configs to /app folder
-COPY package*.json ./
-COPY tsconfig.json ./
 # copy source code to /app/src folder
 COPY ./ /app/
+
+RUN npm install
 
 # check files list
 RUN ls -a
 
-RUN npm install
-RUN npm run build
+EXPOSE 5000
 
-EXPOSE 3000
-
-CMD [ "node", "./app.js" ]
+CMD [ "node", "index.js" ]
