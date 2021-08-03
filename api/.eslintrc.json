@@ -2,17 +2,20 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "es2020": true,
+        "es6": true,
         "node": true
     },
     "extends": [
-        "airbnb-base"
+        "airbnb-base",
+        "plugin:node/recommended",
+        "plugin:security/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": 12
     },
     "rules": {
+        "node/exports-style": ["error", "module.exports"],
         "quotes": ["error", "double"],
-        "indent": [4, "tab"]
+        "semi": [2, "always"]
     }
 }
