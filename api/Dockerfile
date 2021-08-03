@@ -1,7 +1,5 @@
 FROM node:12
 
-RUN heroku addons:create mongolab:sandbox
-
 # create root application folder
 WORKDIR /app
 
