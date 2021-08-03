@@ -20,5 +20,4 @@ jobs:
           heroku_api_key: c6888078-bf9e-4ef1-9ffc-c69e5e4d7053
           heroku_app_name: "perf-analytics-client"
           heroku_email: "kilincaslanmesut@gmail.com"
-          branch: client
           appdir: ./
