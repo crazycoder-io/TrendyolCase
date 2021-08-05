@@ -4,7 +4,7 @@ const createServer = require("../server");
 const { SAMPLE_DATA_1 } = require("../utils/sampleData");
 
 beforeAll(async (done) => {
-    const URL = process.env.TEST_DB_STRING;
+    const URL = process.env.TEST_DB_STRING || "mongodb://localhost:27017/perfanalytics_test";
 
     await mongoose.connect(URL,
         {useNewUrlParser: true, useUnifiedTopology: true},
