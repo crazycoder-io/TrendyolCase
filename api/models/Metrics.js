@@ -5,12 +5,13 @@ const Schema = mongoose.Schema;
 
 const Metric = new Schema(
     {
-        tenant_url: String,
+        URL: String,
         dom_load: Number,
         fcp: Number,
         ttfb: Number,
         window_load: Number,
-        resources: Array
+        resources: Array,
+        UserAgent: String,
     }
 );
 
