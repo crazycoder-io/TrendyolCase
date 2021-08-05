@@ -6,16 +6,23 @@
         "node": true
     },
     "extends": [
-        "airbnb-base",
-        "plugin:node/recommended",
-        "plugin:security/recommended"
+        "airbnb-base"
     ],
     "parserOptions": {
         "ecmaVersion": 12
     },
     "rules": {
-        "node/exports-style": ["error", "module.exports"],
-        "quotes": ["error", "double"],
-        "semi": [2, "always"]
+        "quotes": [2, "double"],
+        "no-console":0,
+        "semi": [2, "always"],
+        "indent": ["error", 4],
+        "no-unused-vars": "off",
+        "strict": 0,
+        "linebreak-style": [
+            2,
+            "unix"
+        ],
+        "prefer-promise-reject-errors": 0,
+        "no-undef": "off"
     }
 }
