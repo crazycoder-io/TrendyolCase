@@ -4,25 +4,9 @@ const createServer = require("../server");
 
 const app = createServer();
 
+jest.setTimeout(30000);
+
 describe("GET /", function() {
-
-    beforeAll(() => {
-        jest.setTimeout(30000);
-    });
-
-    beforeEach((done) => {
-        mongoose.connect(
-            process.env.TEST_DB_STRING || "mongodb://127.0.0.1:27017/perfanalytics_tests",
-            {useNewUrlParser: true, useUnifiedTopology: true},
-            () => done()
-        );
-    });
-
-    afterEach((done) => {
-        mongoose.connection.db.dropDatabase(() => {
-            mongoose.connection.close(() => done())
-        });
-    });
     
     it("it should has status code 200", (done) => {
         request(app)
