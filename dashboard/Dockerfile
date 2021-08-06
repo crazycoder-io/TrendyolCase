@@ -13,4 +13,4 @@ RUN npm install
 # start app
 RUN npm run build
 EXPOSE 7700
-CMD npm run start
+CMD npm start
