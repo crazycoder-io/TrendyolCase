@@ -1,0 +1,21 @@
+name: Dashboard Deploy to Heroku
+
+on:
+  push:
+    branches:
+      - dashboard
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build, Push and Release the dashboard Docker container to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: c6888078-bf9e-4ef1-9ffc-c69e5e4d7053
+          heroku_app_name: "dashboard-perfanalytics"
+          heroku_email: "kilincaslanmesut@gmail.com"
+          appdir: "dashboard"
+          usedocker: true
