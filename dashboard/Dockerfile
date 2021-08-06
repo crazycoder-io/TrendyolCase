@@ -11,5 +11,5 @@ RUN npm install
 
 # start app
 RUN npm run build
-EXPOSE 1020
+EXPOSE 5050
 CMD ["npm", "start"]

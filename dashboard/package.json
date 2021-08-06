@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "config": {
-    "port": "1020"
+    "port": "5050"
   },
   "scripts": {
     "dev": "next dev",
