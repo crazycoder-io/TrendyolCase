@@ -11,7 +11,7 @@ RUN npm install
 
 ENV PORT 5050
 
-ADD . $foo
+ADD . $PORT
 
 # start app
 RUN npm run build
