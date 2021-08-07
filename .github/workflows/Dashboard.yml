@@ -6,7 +6,31 @@ on:
       - dashboard
 
 jobs:
+  test:
+    name: Unit testing
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - name: 🚀 Install dependencies 🚐
+        run: cd dashboard && npm ci
+      - name: 👷🔩🔧 Build the project
+        run: cd dashboard && npm run build
+      - name: 🤹 Run tests 🤸
+        run: cd dashboard && npm test
   deploy:
+    name: Deploy to Heroku server
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
