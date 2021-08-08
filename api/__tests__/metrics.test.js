@@ -46,11 +46,54 @@ describe("POST /metrics", () => {
             .post("/metrics/report-metrics")
             .then((response) => {
                 const fakeData = response.body.report[0];
+
                 expect(typeof fakeData).toBe("object");
                 expect(fakeData).toHaveProperty("ttfb");
                 expect(fakeData).toHaveProperty("fcp");
                 expect(fakeData).toHaveProperty("windowLoad");
                 expect(fakeData).toHaveProperty("domLoad");
+                done();
+            });
+    });
+
+    it("/report-metrics response should be expected data with specific correct dates", (done) => {
+        request(app)
+            .post("/metrics/report-metrics")
+            .send({ startDate: "2021-08-07T19:49:39.193Z", endDate: new Date().toISOString() })
+            .then((response) => {
+                const fakeData = response.body.report[0];
+
+                expect(typeof fakeData).toBe("object");
+                expect(fakeData).toHaveProperty("ttfb");
+                expect(fakeData).toHaveProperty("fcp");
+                expect(fakeData).toHaveProperty("windowLoad");
+                expect(fakeData).toHaveProperty("domLoad");
+                done();
+            });
+    });
+
+    it("/report-metrics response should be undefined with out of range dates", (done) => {
+        request(app)
+            .post("/metrics/report-metrics")
+            .send({ startDate: "2021-08-09T19:49:39.193Z", endDate: "2021-08-10T19:49:39.193Z" })
+            .then((response) => {
+                const fakeData = response.body.report[0];
+
+                expect(fakeData).toBeUndefined();
+                done();
+            });
+    });
+
+    it("/report-metrics response should be error with incorrect params", (done) => {
+        request(app)
+            .post("/metrics/report-metrics")
+            .send({ startDate: "error", endDate: "hata" })
+            .then((response) => {
+                const res = response.body;
+
+                expect(typeof res).toBe("object");
+                expect(res).toHaveProperty("error");
+                expect(res.error).toHaveProperty("error_message");
                 done();
             });
     });
