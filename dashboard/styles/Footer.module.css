@@ -1,0 +1,26 @@
+.footer {
+    width: 100%;
+    height: 100px;
+    border-top: 1px solid #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.signature {
+    color: dimgrey;
+    margin-left: 0.5rem;
+}
+
+@media screen and (max-width: 430px) {
+    .footer a {
+        font-size: 0.8rem;
+    }
+}
