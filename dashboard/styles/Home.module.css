@@ -1,11 +1,9 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
+  padding: 0 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
 .main {
@@ -15,6 +13,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.charts {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .footer {
@@ -48,6 +56,7 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+  margin-bottom: 20px;
 }
 
 .title,
@@ -63,4 +72,23 @@
 .signature {
   color: dimgrey;
   margin-left: 0.5rem;
+}
+
+@media screen and (max-width: 850px) {
+  .title {
+    line-height: 1;
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .footer a {
+    font-size: 0.8rem;
+  }
 }
