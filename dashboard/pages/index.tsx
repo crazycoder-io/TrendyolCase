@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import { Chart } from '../components';
 
 export default function Home(): JSX.Element {
   return (
@@ -12,12 +13,16 @@ export default function Home(): JSX.Element {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://perf-analytics-client.herokuapp.com">PerfAnalytics.js!</a>
+          Welcome to <a href="https://perf-analytics-client.herokuapp.com">PerfAnalytics.js</a> Dashboard
         </h1>
 
-        <p className={styles.description}>
-          Chart will be here ASAP
-        </p>
+        <div className={styles.charts}>
+          <Chart title={"TTFB"} />
+          <Chart title={"FCP"} />
+          <Chart title={"Window Load"} />
+          <Chart title={"DOM Load"} />
+        </div>
+
       </main>
 
       <footer className={styles.footer}>
