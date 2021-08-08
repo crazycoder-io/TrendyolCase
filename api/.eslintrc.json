@@ -23,6 +23,7 @@
             "unix"
         ],
         "prefer-promise-reject-errors": 0,
-        "no-undef": "off"
+        "no-undef": "off",
+        "one-var": "off"
     }
 }
