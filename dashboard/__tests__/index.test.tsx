@@ -3,9 +3,17 @@ import { shallow } from "enzyme";
 import IndexPage from "../pages/index";
 
 describe("Index page unit test", () => {
-    test("Index page title should be expected", () => {
+    test("Index page components should be defined well", () => {
         const wrapper = shallow(<IndexPage />);
-        const titleComponent = wrapper.find(".title");
-        expect(titleComponent.text()).toEqual("Welcome to PerfAnalytics.js Dashboard");
+        
+        const HeaderComponent = wrapper.find("Header");
+        const TitleComponent = wrapper.find("Title");
+        const ChartsComponent = wrapper.find("Charts");
+        const FooterComponent = wrapper.find("Footer");
+        
+        expect(HeaderComponent).toBeDefined();
+        expect(TitleComponent).toBeDefined();
+        expect(ChartsComponent).toBeDefined();
+        expect(FooterComponent).toBeDefined(); 
     });
 });
