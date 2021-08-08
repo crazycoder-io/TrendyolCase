@@ -4,22 +4,17 @@ const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 const addRequestId = require("express-request-id")({ setHeader: false });
-const morgan = require("morgan");
 require("dotenv").config(); // ENV config
 
 const metricsRouter = require("./routes/metrics");
+const { requestHandleLogger, responseHandleLogger } = require("./utils/logger");
 
 function createServer() {
     const app = express();
     app.use(addRequestId);
-    morgan.token("id", (req) => req.id.split("-")[0]);
 
-    app.use(morgan(
-        "[:date[iso] #:id] Started :method :url for :remote-addr",
-        { immediate: true },
-    ));
-
-    app.use(morgan("[:date[iso] #:id] Completed :status :res[content-length] in :response-time ms:"));
+    app.use(requestHandleLogger);
+    app.use(responseHandleLogger);
 
     app.use(cors());
     app.use(helmet());
