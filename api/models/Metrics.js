@@ -13,6 +13,10 @@ const Metric = new Schema(
         window_load: Number,
         resources: Array,
         UserAgent: String,
+        createdAt: {
+            type: Date,
+            default: Date.now(),
+        },
     },
 );
 
