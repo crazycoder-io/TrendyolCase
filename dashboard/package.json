@@ -19,22 +19,22 @@
   "dependencies": {
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "victory": "^35.10.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-typescript": "^7.14.5",
     "@types/enzyme": "^3.10.9",
-    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.24",
     "@types/jsdom": "^16.2.13",
     "@types/node": "^16.4.13",
     "@types/react": "17.0.15",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "babel-jest": "^27.0.6",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6",
     "eslint": "^7.31.0",
     "eslint-config-next": "11.0.1",
     "eslint-config-prettier": "^8.3.0",
