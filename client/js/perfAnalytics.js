@@ -3,6 +3,7 @@
 class Performance {
     // Variables
     #metrics; // # is for to make it private
+    #BASE_URL = "https://service-perf-analytics.herokuapp.com";
     performance;
 
     constructor() {
@@ -70,8 +71,18 @@ class Performance {
     request = () => {
         if (!navigator.sendBeacon) {
             console.log('NoN Beacon', this.#metrics);
+            fetch(`${this.#BASE_URL}/metrics/collect-metrics`, {
+                method: "POST",
+                body: this.#metrics,
+            })
+            .then((response) => console.log(response.body.message))
+            .catch((err) => console.error(err));
         } else {
             console.log('Beacon', this.#metrics);
+            navigator.sendBeacon(
+                `${this.#BASE_URL}/metrics/collect-metrics`,
+                this.#metrics
+            );
         }
     };
 }
