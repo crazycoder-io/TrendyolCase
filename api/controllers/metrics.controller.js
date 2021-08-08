@@ -26,7 +26,7 @@ module.exports = {
         const data = req.body;
 
         try {
-            const respond = await createMetric(data);
+            const respond = await createMetric(typeof data === "string" ? JSON.parse(data) : data);
             console.log("Create function response", respond);
             if (respond) {
                 res.json({ message: "OK!" });
