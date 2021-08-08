@@ -73,16 +73,19 @@ class Performance {
             console.log('NoN Beacon', this.#metrics);
             fetch(`${this.#BASE_URL}/metrics/collect-metrics`, {
                 method: "POST",
-                body: this.#metrics,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(this.#metrics),
             })
             .then((response) => console.log(response.body.message))
             .catch((err) => console.error(err));
         } else {
             console.log('Beacon', this.#metrics);
-            navigator.sendBeacon(
-                `${this.#BASE_URL}/metrics/collect-metrics`,
-                this.#metrics
-            );
+            window.addEventListener("unload", () => {
+                navigator.sendBeacon(
+                    `${this.#BASE_URL}/metrics/collect-metrics`,
+                    JSON.stringify(this.#metrics)
+                );
+            });
         }
     };
 }
