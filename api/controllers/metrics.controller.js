@@ -26,9 +26,9 @@ module.exports = {
         const data = req.body;
 
         try {
-            const response = await createMetric(data);
-            console.log("Create function response", response);
-            if (response) {
+            const respond = await createMetric(data);
+            console.log("Create function response", respond);
+            if (respond) {
                 res.json({ message: "OK!" });
             } else {
                 res.json({ error: { error_message: "An unexpected error was encountered!" } });

@@ -36,6 +36,7 @@ module.exports = {
 
     createMetric: async (data) => {
         try {
+            console.log("Create metric service -> ", data);
             metric = await MetricModel.create(data);
         } catch (error) {
             throw new Error(error.message);
