@@ -7,10 +7,10 @@ const { Schema } = mongoose;
 const Metric = new Schema(
     {
         URL: String,
-        dom_load: Number,
+        domLoad: Number,
         fcp: Number,
         ttfb: Number,
-        window_load: Number,
+        windowLoad: Number,
         resources: Array,
         UserAgent: String,
         createdAt: {
