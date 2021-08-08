@@ -7,7 +7,7 @@ class Performance {
     performance;
 
     constructor() {
-        this.performance = performance.getEntriesByType("navigation")[0];
+        this.performance = window.performance.toJSON().timing;
         this.#metrics = {
             ttfb: null,
             domLoad: null,
@@ -38,11 +38,11 @@ class Performance {
     };
 
     getDOMLoad = () => {
-        this.#metrics.domLoad = this.convertMsToSec(this.performance.domComplete);
+        this.#metrics.domLoad = this.convertMsToSec(this.performance.domContentLoadedEventEnd - this.performance.navigationStart);
     };
 
     getWindowLoad = () => {
-        this.#metrics.windowLoad = this.convertMsToSec(this.performance.loadEventStart - this.performance.loadEventEnd);
+        this.#metrics.windowLoad = this.convertMsToSec(new Date().valueOf() - this.performance.navigationStart);
     };
 
     getFCP = () => {
