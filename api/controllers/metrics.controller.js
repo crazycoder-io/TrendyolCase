@@ -27,6 +27,7 @@ module.exports = {
 
         try {
             const response = await createMetric(data);
+            console.log("Create function response", response);
             if (response) {
                 res.json({ message: "OK!" });
             } else {
