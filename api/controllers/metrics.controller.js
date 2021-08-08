@@ -25,8 +25,6 @@ module.exports = {
     collectMetric: async (req, res) => {
         const data = req.body;
 
-        console.log("data -> ", req);
-
         try {
             const response = await createMetric(data);
             if (response) {
