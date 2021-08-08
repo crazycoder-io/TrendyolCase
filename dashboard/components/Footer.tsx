@@ -13,7 +13,7 @@ const Footer = (): JSX.Element => {
                     >Mesut KILINCASLAN</a>
                 </span>
             </a>
-      </footer>
+        </footer>
     );
 };
 
