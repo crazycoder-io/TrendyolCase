@@ -35,7 +35,22 @@ describe("POST /metrics", () => {
             .post("/metrics/report-metrics")
             .then((response) => {
                 expect(response.statusCode).toBe(200);
-                expect(response.body.report).toEqual([]);
+                expect(typeof response.body.report).toBe("object");
+                expect(response.body.report.length).toBeGreaterThanOrEqual(1);
+                done();
+            });
+    });
+
+    it("/report-metrics response should contain data with expected fields", (done) => {
+        request(app)
+            .post("/metrics/report-metrics")
+            .then((response) => {
+                const fakeData = response.body.report[0];
+                expect(typeof fakeData).toBe("object");
+                expect(fakeData).toHaveProperty("ttfb");
+                expect(fakeData).toHaveProperty("fcp");
+                expect(fakeData).toHaveProperty("windowLoad");
+                expect(fakeData).toHaveProperty("domLoad");
                 done();
             });
     });
