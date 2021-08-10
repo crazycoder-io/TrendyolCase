@@ -1,11 +1,13 @@
 export type ChartObject = {
-    time: String;
-    value: Number;
+    x: String;
+    y: Number;
 }
 
 export type ChartsData = {
     [key: string]: Array<ChartObject>;
 };
+
+export type _Date = { startDate: Date, endDate: Date };
 
 export type Metric = {
     resources: Array<Object>;
@@ -22,16 +24,31 @@ export type Metric = {
 
 export type Metrics = Array<Metric>;
 
-export type SplittedData = {
-    [key: string]: ChartObject[]
-};
-
 export interface HomeProps {
     metrics: Metrics;
-    chartsData: ChartObject[];
+    chartsData: ChartsData;
 }
 
 export interface ChartProps {
     title: String;
     chart: ChartObject[];
+    loading: boolean;
 }
+
+export interface DatePickerProps {
+    specificDate: {
+        startDate: Date;
+        endDate: Date;
+    };
+    setDate: (key, data) => void;
+    keyword: string;
+};
+
+
+export interface ServiceCall {
+    data: { report: Metrics }
+};
+
+export interface Error {
+    error: Object
+};
