@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - dashboard
+  pull_request:
+    branches:
+      - dashboard
 
 jobs:
   test:
