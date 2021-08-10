@@ -23,8 +23,8 @@
   - Makes a request to API for draws charts by default without parameter
   - But there are two date pickers for make a request with a range and can useful draw a chart with selected date range
 
-![Screenshot-1](https://drive.google.com/uc?export=view&id=1QI9V4_eCq5wuBNeg_DfGrDV351F-G5CM "Dashboard 1")
+![Screenshot-1](https://drive.google.com/uc?export=view&id=1IWUvzOQMAaUsrpga0Yf4OjIQmwE6b_44 "Dashboard 1")
 
 <br>
 
-![Screenshot-2](https://drive.google.com/uc?export=view&id=1IWUvzOQMAaUsrpga0Yf4OjIQmwE6b_44 "Dashboard 2")
+![Screenshot-2](https://drive.google.com/uc?export=view&id=1QI9V4_eCq5wuBNeg_DfGrDV351F-G5CM "Dashboard 2")
