@@ -75,7 +75,7 @@ describe("POST /metrics", () => {
     it("/report-metrics response should be undefined with out of range dates", (done) => {
         request(app)
             .post("/metrics/report-metrics")
-            .send({ startDate: "2021-08-09T19:49:39.193Z", endDate: "2021-08-10T19:49:39.193Z" })
+            .send({ startDate: "2021-06-09T19:49:39.193Z", endDate: "2021-06-10T19:49:39.193Z" })
             .then((response) => {
                 const fakeData = response.body.report[0];
 
