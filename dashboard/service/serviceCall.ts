@@ -1,13 +1,14 @@
 import axios from "axios";
+import { _Date, ServiceCall } from "../types";
 const BASE_URL = "https://service-perf-analytics.herokuapp.com";
 
-const SERVICE_CALL = async (data = {}) => {
+const SERVICE_CALL = async (date: _Date | {} = {}): Promise<ServiceCall> => {
     let res;
     try {
         res = await axios({
             url: `${BASE_URL}/metrics/report-metrics`,
             method: "POST",
-            data
+            data: date
         });
     } catch (error) {
         console.log(error);
