@@ -22,9 +22,13 @@ module.exports = {
 
     getMetricsByLast30Mins: async () => {
         try {
+            const date = new Date();
+            const localeDate = date.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" });
             metrics = await MetricModel.find(
                 {
-                    createdAt: { $gte: new Date(new Date().getTime() - (1000 * 60 * 30)) },
+                    createdAt: {
+                        $gte: new Date(new Date(localeDate).getTime() - (1000 * 60 * 30)),
+                    },
                 },
             );
         } catch (error) {
