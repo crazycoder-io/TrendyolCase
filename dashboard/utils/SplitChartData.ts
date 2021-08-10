@@ -1,31 +1,31 @@
-import { Metrics, SplittedData as _SplittedDate } from "../types";
-const SplittedData: _SplittedDate = {
+import { Metrics, ChartsData } from "../types";
+const SplittedData: ChartsData = {
     ttfb: [],
     fcp: [],
     domLoad: [],
     windowLoad: [],
 };
 
-const SplitData = (metrics: Metrics): Object => {
+const SplitData = (metrics: Metrics): ChartsData => {
     metrics.map((metric) => {
         SplittedData.ttfb.push({
-            time: new Date(metric.createdAt).toLocaleTimeString(),
-            value: metric.ttfb,
+            x: new Date(metric.createdAt!).toLocaleTimeString(),
+            y: metric.ttfb,
         });
     
         SplittedData.fcp.push({
-            time: new Date(metric.createdAt).toLocaleTimeString(),
-            value: metric.fcp,
+            x: new Date(metric.createdAt).toLocaleTimeString(),
+            y: metric.fcp,
         });
     
         SplittedData.domLoad.push({
-            time: new Date(metric.createdAt).toLocaleTimeString(),
-            value: metric.domLoad,
+            x: new Date(metric.createdAt).toLocaleTimeString(),
+            y: metric.domLoad,
         });
     
         SplittedData.windowLoad.push({
-            time: new Date(metric.createdAt).toLocaleTimeString(),
-            value: metric.windowLoad,
+            x: new Date(metric.createdAt).toLocaleTimeString(),
+            y: metric.windowLoad,
         });
     });
     return SplittedData;
