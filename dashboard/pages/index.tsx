@@ -15,6 +15,9 @@ const Home = (props: HomeProps): JSX.Element => {
     const UpdateCharts = async () => {
         updateLoading();
         try {
+            if (specificDate.startDate > specificDate.endDate) {
+                alert("You cannot set the end date lower than the start date!");
+            }
             const res = await serviceCall({
                 startDate: specificDate.startDate.toISOString(),
                 endDate: specificDate.endDate.toISOString()
