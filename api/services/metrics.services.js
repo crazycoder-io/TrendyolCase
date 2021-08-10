@@ -24,6 +24,8 @@ module.exports = {
         try {
             const date = new Date();
             const localeDate = Date(date.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" }));
+
+            console.log("Make request with", new Date(localeDate), "--> for last 30mins");
             metrics = await MetricModel.find(
                 {
                     createdAt: {
