@@ -1,13 +1,11 @@
 import { ChartProps } from "../types";
 import { VictoryChart, VictoryTheme, VictoryLine } from "victory";
+import Loader from "react-loader-spinner";
+
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import styles from "../styles/Chart.module.css";
 
-const Chart: React.FC<ChartProps> = ({ title, chart }): JSX.Element => {
-    chart.forEach((item) => {
-        item["x"] = item.time;
-        item["y"] = item.value;
-    });
-    
+const Chart: React.FC<ChartProps> = ({ title, chart, loading }): JSX.Element => {
     return (
         <div className={styles.chart_box}>
             <h4 className={styles.chart_title}>{title}</h4>
@@ -28,9 +26,7 @@ const Chart: React.FC<ChartProps> = ({ title, chart }): JSX.Element => {
                             data={chart}
                         />
                     </VictoryChart>
-                ) : (
-                    <p className={styles.message}>No data to draw chart.</p>
-                )
+                ) : loading ? <Loader type="Circles" color="#FFDAB9" height={80} width={80}/> : <p className={styles.message}>No data to draw chart.</p>
             }
         </div>
     );
