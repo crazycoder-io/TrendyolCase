@@ -41,6 +41,10 @@ module.exports = {
     },
 
     createMetric: async (data) => {
+        const date = new Date();
+        const localeDate = Date(date.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" }));
+
+        data.createdAt = new Date(localeDate);
         try {
             metric = await MetricModel.create(data);
         } catch (error) {
