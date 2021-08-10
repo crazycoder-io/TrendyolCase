@@ -26,7 +26,7 @@ describe("Hooks unit tests", () => {
         // We use -2 cause we mock the function
         expect(result.current.specificDate).toEqual({
             startDate,
-            endDate: new Date(new Date().getTime() - 3)
+            endDate: new Date(new Date().getTime() - 2)
         });
     });
 });
