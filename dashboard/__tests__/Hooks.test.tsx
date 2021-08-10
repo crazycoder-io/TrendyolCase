@@ -23,10 +23,10 @@ describe("Hooks unit tests", () => {
         const startDate = new Date();
         act(() => result.current.updateDate("startDate", startDate));
 
-        // We use -2 cause we mock the function
+        // We use -1 cause we mock the function
         expect(result.current.specificDate).toEqual({
             startDate,
-            endDate: new Date(new Date().getTime() - 2)
+            endDate: new Date(new Date().getTime() - 1)
         });
     });
 });
