@@ -1,3 +1,4 @@
+import moment from "moment";
 import { Metrics, ChartsData } from "../types";
 const SplittedData: ChartsData = {
     ttfb: [],
@@ -9,22 +10,22 @@ const SplittedData: ChartsData = {
 const SplitData = (metrics: Metrics): ChartsData => {
     metrics.map((metric) => {
         SplittedData.ttfb.push({
-            x: new Date(metric.createdAt!).toTimeString().split(" ")[0],
+            x: moment(metric.createdAt).format("DD/MM HH:mm").toString(),
             y: metric.ttfb,
         });
     
         SplittedData.fcp.push({
-            x: new Date(metric.createdAt).toTimeString().split(" ")[0],
+            x: moment(metric.createdAt).format("DD/MM HH:mm").toString(),
             y: metric.fcp,
         });
     
         SplittedData.domLoad.push({
-            x: new Date(metric.createdAt).toTimeString().split(" ")[0],
+            x: moment(metric.createdAt).format("DD/MM HH:mm").toString(),
             y: metric.domLoad,
         });
     
         SplittedData.windowLoad.push({
-            x: new Date(metric.createdAt).toTimeString().split(" ")[0],
+            x: moment(metric.createdAt).format("DD/MM HH:mm").toString(),
             y: metric.windowLoad,
         });
     });
