@@ -17,20 +17,25 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "@types/react-loader-spinner": "^4.0.0",
     "axios": "^0.21.1",
     "next": "11.0.1",
     "react": "17.0.2",
+    "react-datepicker": "^4.2.0",
     "react-dom": "17.0.2",
+    "react-loader-spinner": "^4.0.0",
     "victory": "^35.10.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-typescript": "^7.14.5",
+    "@testing-library/react-hooks": "^7.0.1",
     "@types/enzyme": "^3.10.9",
     "@types/jest": "^26.0.24",
     "@types/jsdom": "^16.2.13",
     "@types/node": "^16.4.13",
     "@types/react": "17.0.15",
+    "@types/react-datepicker": "^4.1.4",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
