@@ -9,25 +9,33 @@ const SplittedData: ChartsData = {
     windowLoad: [],
 };
 
+const OPTIONS: Intl.DateTimeFormatOptions = {
+    timeZone: "Europe/Istanbul",
+    day: "2-digit",
+    month: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit"
+};
+
 const SplitData = (metrics: Metrics): ChartsData => {
     metrics.map((metric) => {
         SplittedData.ttfb.push({
-            x: moment(metric.createdAt).locale("tr").format("DD/MM HH:mm").toString(),
+            x: new Date(metric.createdAt).toLocaleString("tr-TR", OPTIONS),
             y: metric.ttfb,
         });
     
         SplittedData.fcp.push({
-            x: moment(metric.createdAt).locale("tr").format("DD/MM HH:mm").toString(),
+            x: new Date(metric.createdAt).toLocaleString("tr-TR", OPTIONS),
             y: metric.fcp,
         });
     
         SplittedData.domLoad.push({
-            x: moment().locale("tr").format("DD/MM HH:mm").toString(),
+            x: new Date(metric.createdAt).toLocaleString("tr-TR", OPTIONS),
             y: metric.domLoad,
         });
     
         SplittedData.windowLoad.push({
-            x: moment(metric.createdAt).locale("tr").format("DD/MM HH:mm").toString(),
+            x: new Date(metric.createdAt).toLocaleString("tr-TR", OPTIONS),
             y: metric.windowLoad,
         });
     });
