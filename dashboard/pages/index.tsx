@@ -52,7 +52,7 @@ const Home = (props: HomeProps): JSX.Element => {
     );
 };
 
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
     props: {
         metrics: Metrics;
         chartsData: ChartsData;
