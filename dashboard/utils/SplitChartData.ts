@@ -11,8 +11,9 @@ const SplittedData: ChartsData = {
 
 const SplitData = (metrics: Metrics): ChartsData => {
     metrics.map((metric) => {
+        console.log(metric)
         SplittedData.ttfb.push({
-            x: moment(metric.createdAt).format("DD/MM HH:mm").toString(),
+            x: moment(metric.createdAt).locale("tr").format("DD/MM HH:mm").toString(),
             y: metric.ttfb,
         });
     
