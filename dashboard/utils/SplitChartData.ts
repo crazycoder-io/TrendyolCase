@@ -1,6 +1,3 @@
-import moment from "moment";
-import "moment/locale/tr";
-moment.locale("tr");
 import { Metrics, ChartsData } from "../types";
 const SplittedData: ChartsData = {
     ttfb: [],
