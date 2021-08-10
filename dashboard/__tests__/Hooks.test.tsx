@@ -14,19 +14,15 @@ describe("Hooks unit tests", () => {
     test("Date Hook should work properly", () => {
         const { result } = renderHook(() => DateHook());
 
-        // We send -1 split-second cause function works 1 split-second before the test
-        expect(result.current.specificDate).toEqual({
-            startDate: new Date(new Date().getTime() - 1),
-            endDate: new Date(new Date().getTime() - 1)
-        });
+        // Change the last character of timezone because last character is unstable.
+
+        expect(Number(result.current.specificDate.startDate.getTime().toString().slice(0, -1) + "0")).toBeCloseTo(Number(new Date().getTime().toString().slice(0, -1) + "0"));
+        expect(Number(result.current.specificDate.endDate.getTime().toString().slice(0, -1) + "0")).toBeCloseTo(Number(new Date().getTime().toString().slice(0, -1) + "0"));
 
         const startDate = new Date();
         act(() => result.current.updateDate("startDate", startDate));
 
-        // We use -1 cause we mock the function
-        expect(result.current.specificDate).toEqual({
-            startDate,
-            endDate: new Date(new Date().getTime() - 1)
-        });
+        expect(Number(result.current.specificDate.startDate.getTime().toString().slice(0, -1) + "0")).toBeCloseTo(Number(startDate.getTime().toString().slice(0, -1) + "0"));
+        expect(Number(result.current.specificDate.endDate.getTime().toString().slice(0, -1) + "0")).toBeCloseTo(Number(new Date().getTime().toString().slice(0, -1) + "0"));
     });
 });
