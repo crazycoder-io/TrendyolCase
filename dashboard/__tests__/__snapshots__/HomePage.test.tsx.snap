@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index page unit test Index page components should be defined well 1`] = `ShallowWrapper {}`;
