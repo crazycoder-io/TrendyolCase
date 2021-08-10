@@ -23,7 +23,7 @@ module.exports = {
     getMetricsByLast30Mins: async () => {
         try {
             const date = new Date();
-            const localeDate = date.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" });
+            const localeDate = Date(date.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" }));
             metrics = await MetricModel.find(
                 {
                     createdAt: {
