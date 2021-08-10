@@ -25,7 +25,7 @@ const Home = (props: HomeProps): JSX.Element => {
 
             const splitData = SplitChartData(res.data.report);
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            updateChartsData(splitData!);
+            updateChartsData(splitData);
             updateLoading();
         } catch (error) {
             console.log(error);
@@ -61,7 +61,7 @@ export async function getServerSideProps(): Promise<{
     // Call an external API endpoint to get data.
     const res = await serviceCall();
 
-    const splitData = res.hasOwnProperty("data") && SplitChartData(res.data.report);
+    const splitData = SplitChartData(res.data.report);
   
     // By returning { props: { metrics } }, the Charts component
     // will receive `metrics` as a prop at build time
