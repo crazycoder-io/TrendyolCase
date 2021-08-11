@@ -61,7 +61,7 @@ export async function getServerSideProps(): Promise<{
     // Call an external API endpoint to get data.
     const res = await serviceCall();
 
-    const splitData = SplitChartData(res.data.report);
+    const splitData = await SplitChartData(res.data.report);
   
     // By returning { props: { metrics } }, the Charts component
     // will receive `metrics` as a prop at build time
