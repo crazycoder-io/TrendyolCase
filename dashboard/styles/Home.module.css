@@ -33,3 +33,33 @@
   font-size: 1rem;
   font-weight: 700;
 }
+
+@media screen and (max-width: 900px) {
+  .container {
+    padding: 0 7rem;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0 .2rem;
+  }
+}

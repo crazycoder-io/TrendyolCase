@@ -1,6 +1,6 @@
 export type ChartObject = {
     x: String;
-    y: Number;
+    y: String;
 }
 
 export type ChartsData = {

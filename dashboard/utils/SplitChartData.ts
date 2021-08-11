@@ -14,26 +14,28 @@ const OPTIONS: Intl.DateTimeFormatOptions = {
     minute: "2-digit"
 };
 
+const converter = (value) => value.toString().split(".")[0] + "." + value.toString().split(".")[1].toString().substring(0,3);
+
 const SplitData = (metrics: Metrics): ChartsData => {
     metrics.map((metric) => {
         SplittedData.ttfb.push({
             x: new Date(metric.createdAt).toLocaleString("tr-TR", OPTIONS),
-            y: metric.ttfb,
+            y: converter(metric.ttfb),
         });
     
         SplittedData.fcp.push({
             x: new Date(metric.createdAt).toLocaleString("tr-TR", OPTIONS),
-            y: metric.fcp,
+            y: converter(metric.fcp),
         });
     
         SplittedData.domLoad.push({
             x: new Date(metric.createdAt).toLocaleString("tr-TR", OPTIONS),
-            y: metric.domLoad,
+            y: converter(metric.domLoad),
         });
     
         SplittedData.windowLoad.push({
             x: new Date(metric.createdAt).toLocaleString("tr-TR", OPTIONS),
-            y: metric.windowLoad,
+            y: converter(metric.windowLoad),
         });
     });
     return SplittedData;
