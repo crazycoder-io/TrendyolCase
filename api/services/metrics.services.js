@@ -1,6 +1,7 @@
 "use strict";
 
 const MetricModel = require("../models/Metrics");
+const convertNumber = require("../utils/convertNumber");
 
 let metrics = [],
     metric;
@@ -43,6 +44,11 @@ module.exports = {
     createMetric: async (data) => {
         const date = new Date();
         const localeDate = Date(date.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" }));
+
+        data.ttfb = convertNumber(data.ttfb);
+        data.fcp = convertNumber(data.fcp);
+        data.windowLoad = convertNumber(data.windowLoad);
+        data.domLoad = convertNumber(data.domLoad);
 
         data.createdAt = new Date(localeDate);
         try {
